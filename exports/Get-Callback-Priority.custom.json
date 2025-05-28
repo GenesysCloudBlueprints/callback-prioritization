@@ -1,0 +1,55 @@
+{
+  "name": "Get Callback Priority",
+  "integrationType": "purecloud-data-actions",
+  "actionType": "custom",
+  "config": {
+    "request": {
+      "requestUrlTemplate": "/api/v2/conversations/callbacks/${input.conversationId}",
+      "requestType": "GET",
+      "headers": {},
+      "requestTemplate": "${input.rawRequest}"
+    },
+    "response": {
+      "translationMap": {
+        "pIdArray": "$.participants[?(@.purpose=='acd')].conversationRoutingData.priority"
+      },
+      "translationMapDefaults": {
+        "pIdArray": "[\"\"]"
+      },
+      "successTemplate": "{\"priority\": ${successTemplateUtils.firstFromArray(\"${pIdArray}\", \"$esc.quote$esc.quote\")}}"
+    }
+  },
+  "contract": {
+    "input": {
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description": "Gets the conversation participants",
+        "type": "object",
+        "required": [
+          "conversationId"
+        ],
+        "properties": {
+          "conversationId": {
+            "description": "The conversation ID.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "successSchema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description": "Returns the conversation.",
+        "type": "object",
+        "properties": {
+          "priority": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "secure": false
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Update Callback Priority",
+  "integrationType": "purecloud-data-actions",
+  "actionType": "custom",
+  "config": {
+    "request": {
+      "requestUrlTemplate": "/api/v2/routing/conversations/${input.conversationId}",
+      "requestType": "PATCH",
+      "headers": {},
+      "requestTemplate": "{\n  \"priority\":${input.priority}\n}"
+    },
+    "response": {
+      "translationMap": {
+        "priority": "$.priority"
+      },
+      "translationMapDefaults": {
+        "priority": "0"
+      },
+      "successTemplate": "{\"priority\": ${priority}}"
+    }
+  },
+  "contract": {
+    "input": {
+      "inputSchema": {
+        "type": "object",
+        "required": [
+          "conversationId",
+          "priority"
+        ],
+        "properties": {
+          "conversationId": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "successSchema": {
+        "type": "object",
+        "properties": {
+          "priority": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "secure": false
+}

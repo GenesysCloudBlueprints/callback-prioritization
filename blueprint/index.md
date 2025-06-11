@@ -125,7 +125,7 @@ To create a data action integration in Genesys Cloud:
 
 #### Import the Genesys Cloud data actions
 
-1. Download the `Get-Callback-Priority.custom.json`, `Get-Interaction-State.custom.json` and `Update-Callback-Priority.custom.json` JSON file from the [callback-prioritization](https://github.com/GenesysCloudBlueprints/callback-prioritization/exports/) GitHub repository.
+1. Download the `Get-Callback-Priority.custom.json`, `Get-Interaction-State.custom.json` and `Update-Callback-Priority.custom.json` JSON file from the [callback-prioritization](https://github.com/GenesysCloudBlueprints/callback-prioritization/tree/main/exports) GitHub repository.
 2. In Genesys Cloud, navigate to **Admin** > **Integrations** > **Actions** and click **Import**.
 3. Select the `json` files and associate with "Callback Prioritization" data action integration.
 4. click **Import Action**.
@@ -143,7 +143,7 @@ This solution includes one Architect workflow that uses the [data actions](#add-
 
 First import this workflow to your Genesys Cloud organization:
 
-1. Download the `Callback-Prioritization.i3WorkFlow` file from the [callback-prioritization repo](https://github.com/GenesysCloudBlueprints/callback-prioritization/exports/) GitHub repository.
+1. Download the `Callback-Prioritization.i3WorkFlow` file from the [callback-prioritization repo](https://github.com/GenesysCloudBlueprints/callback-prioritization/tree/main/exports) GitHub repository.
 
 2. In Genesys Cloud, navigate to **Admin** > **Architect** > **Flows:Workflow** and click **Add**.
 

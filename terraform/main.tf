@@ -140,7 +140,6 @@ resource "genesyscloud_integration_action" "action-3" {
 // Configures the architect workflow
 resource "genesyscloud_flow" "workflow" {
   filepath = "${path.module}/Callback-Prioritization-Workflow.yaml"
-  file_content_hash = filesha256("${path.module}/Callback-Prioritization-Workflow.yaml")
   substitutions = {
     flow_name               = "Callback Prioritization"
     division                = "Home"
